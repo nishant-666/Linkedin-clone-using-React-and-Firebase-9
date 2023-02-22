@@ -1,0 +1,15 @@
+.popup-card {
+  border: 1px solid #a8a8a8;
+  width: 200px;
+  height: 100px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+
+  .popup-options {
+    list-style: none;
+
+    .popup-option {
+      cursor: pointer;
+    }
+  }
+}
