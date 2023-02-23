@@ -52,26 +52,6 @@ body {
   flex-direction: column;
   gap: 10px;
   width: 300px;
-
-  .common-input {
-    height: 30px;
-    padding: 10px;
-    background-color: white;
-    outline: none;
-    border: 1px solid #212121;
-    color: #212121;
-    border-radius: 3px;
-    font-family: system-ui;
-    font-size: 16px;
-    margin: 10px 0px;
-  }
-  .common-input:focus {
-    outline: 1px solid $linkedinBlue1;
-  }
-  ::placeholder {
-    font-family: system-ui;
-    font-size: 16px;
-  }
 }
 
 .linkedinLogo {
