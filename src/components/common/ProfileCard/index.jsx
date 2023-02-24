@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
 import PostsCard from "../PostsCard";
+import { HiOutlinePencil } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 import "./index.scss";
 
@@ -22,7 +23,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
     <>
       <div className="profile-card">
         <div className="edit-btn">
-          <button onClick={onEdit}>Edit</button>
+          <HiOutlinePencil className="edit-icon" onClick={onEdit} />
         </div>
         <div className="profile-info">
           <div>
@@ -38,9 +39,22 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </p>
             <p className="location">
               {Object.values(currentProfile).length === 0
-                ? currentUser.location
-                : currentProfile?.location}
+                ? `${currentUser.location}, ${currentUser.country} `
+                : `${currentProfile?.location}, ${currentUser.country}`}
             </p>
+            <a
+              className="website"
+              target="_blank"
+              href={
+                Object.values(currentProfile).length === 0
+                  ? `${currentUser.website}`
+                  : currentProfile?.website
+              }
+            >
+              {Object.values(currentProfile).length === 0
+                ? `${currentUser.website}`
+                : currentProfile?.website}
+            </a>
           </div>
 
           <div className="right-info">
@@ -56,6 +70,18 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </p>
           </div>
         </div>
+        <p className="about-me">
+          {Object.values(currentProfile).length === 0
+            ? currentUser.aboutMe
+            : currentProfile?.aboutMe}
+        </p>
+
+        <p className="skills">
+          <span className="skill-label">Skills</span>:&nbsp;
+          {Object.values(currentProfile).length === 0
+            ? currentUser.skills
+            : currentProfile?.skills}
+        </p>
       </div>
 
       <div className="post-status-main">

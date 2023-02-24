@@ -1,0 +1,19 @@
+.common-btn {
+  width: 200px;
+  height: 30px;
+  cursor: pointer;
+  background-color: whitesmoke;
+  border: 2px solid #003365;
+  color: #014488;
+  border-radius: 30px;
+  font-family: system-ui;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 7px 0;
+}
+
+.common-btn:hover {
+  background-color: rgb(230, 230, 230);
+  border: 2px solid #014488;
+  color: #014488;
+}

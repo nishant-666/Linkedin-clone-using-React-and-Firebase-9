@@ -27,12 +27,27 @@
       }
     }
   }
+
+  .website {
+    color: #004c75 !important;
+    -webkit-link: #004c75;
+  }
+  .skill-label {
+    font-weight: 600;
+  }
   .edit-btn {
     position: absolute;
     right: 20px;
 
-    button {
+    .edit-icon {
       cursor: pointer;
+      padding: 10px;
+    }
+
+    .edit-icon:hover {
+      background-color: rgb(197, 197, 197);
+      padding: 10px;
+      border-radius: 50%;
     }
   }
   .userName {
@@ -40,6 +55,7 @@
     color: rgba(0, 0, 0, 0.9);
     font-weight: 600;
     font-size: 24px;
+    margin-top: -10px;
   }
 
   .heading {
