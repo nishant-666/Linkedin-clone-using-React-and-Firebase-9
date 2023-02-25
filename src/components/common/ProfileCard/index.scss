@@ -9,7 +9,14 @@
   .profile-info {
     display: flex;
     justify-content: space-between;
-
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #cacaca;
+      padding: 5px;
+    }
     .right-info {
       margin-top: 25px;
       margin-right: 20px;
@@ -55,7 +62,7 @@
     color: rgba(0, 0, 0, 0.9);
     font-weight: 600;
     font-size: 24px;
-    margin-top: -10px;
+    margin-top: 10px;
   }
 
   .heading {

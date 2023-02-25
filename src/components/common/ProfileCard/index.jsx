@@ -3,12 +3,22 @@ import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
 import PostsCard from "../PostsCard";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
+import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 import "./index.scss";
 
 export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
+  const [currentImage, setCurrentImage] = useState({});
+  const getImage = (event) => {
+    setCurrentImage(event.target.files[0]);
+  };
+
+  const uploadImage = () => {
+    uploadImageAPI(currentImage, currentUser.id);
+  };
+
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setAllStatus, location?.state?.id);
@@ -22,11 +32,22 @@ export default function ProfileCard({ onEdit, currentUser }) {
   return (
     <>
       <div className="profile-card">
+        <input type={"file"} onChange={getImage} />
+        <button onClick={uploadImage}>Upload</button>
         <div className="edit-btn">
           <HiOutlinePencil className="edit-icon" onClick={onEdit} />
         </div>
         <div className="profile-info">
           <div>
+            <img
+              className="profile-image"
+              src={
+                Object.values(currentProfile).length === 0
+                  ? currentUser.imageLink
+                  : currentProfile?.imageLink
+              }
+              alt="profile-image"
+            />
             <h3 className="userName">
               {Object.values(currentProfile).length === 0
                 ? currentUser.name
