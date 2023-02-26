@@ -8,13 +8,23 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+  .post-image-wrapper {
+    display: flex;
+    padding: 15px;
+    gap: 10px;
+  }
+  .post-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
   .name {
     font-family: system-ui, sans-serif;
-    font-size: 16px;
-    color: rgba(15, 17, 157, 0.6);
+    font-size: 18px;
+    color: #212121;
     font-weight: 600;
-    margin: 10px 0 0 10px;
-    text-decoration: underline;
+    margin: 0px 0 0 0px;
     cursor: pointer;
   }
   .timestamp {
@@ -22,14 +32,14 @@
     font-size: 12px;
     color: rgba(0, 0, 0, 0.6);
     font-weight: 400;
-    margin: 0px 0 0 10px;
+    margin: 0px 0 0 0px;
   }
 
   .status {
     text-align: left;
     margin: 10px 0 0 10px;
-    font-family: system-ui, sans-serif;
-    font-size: 14px;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.9);
   }

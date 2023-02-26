@@ -11,6 +11,7 @@
   .like-comment {
     display: grid;
     grid-template-columns: auto auto auto auto;
+    margin-top: 5px;
   }
 
   .comment-input {
@@ -46,10 +47,12 @@
     background-color: rgb(227, 227, 227);
     border-radius: 10px;
     position: relative;
-    margin: 10px 0;
+    margin: 10px;
     .name {
       color: #212121;
       text-decoration: none;
+      margin-left: 10px;
+      margin-top: 10px;
     }
 
     .comment {
@@ -70,7 +73,7 @@
     }
   }
   p {
-    font-family: system-ui;
+    font-family: Inter, sans-serif;
     font-weight: 400;
     color: rgba(58, 58, 58, 0.835);
     font-size: 14px;
@@ -89,7 +92,7 @@
       color: rgba(58, 58, 58, 0.835);
     }
     p {
-      font-family: system-ui;
+      font-family: Inter, sans-serif;
       font-weight: 600;
       color: rgba(58, 58, 58, 0.835);
       font-size: 16px;

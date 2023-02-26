@@ -8,6 +8,7 @@ import {
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
 import { AiOutlineHeart, AiFillHeart, AiOutlineComment } from "react-icons/ai";
+import { BsFillHandThumbsUpFill, BsHandThumbsUp } from "react-icons/bs";
 
 export default function LikeButton({ userId, postId, currentUser }) {
   const [likesCount, setLikesCount] = useState(0);
@@ -39,9 +40,9 @@ export default function LikeButton({ userId, postId, currentUser }) {
       <div className="like-comment">
         <div className="likes-comment-inner" onClick={handleLike}>
           {liked ? (
-            <AiFillHeart size={30} color="#0a66c2" />
+            <BsFillHandThumbsUpFill size={30} color="#0a66c2" />
           ) : (
-            <AiOutlineHeart size={30} />
+            <BsHandThumbsUp size={30} />
           )}
 
           <p className={liked ? "blue" : "black"}>Like</p>
