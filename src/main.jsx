@@ -5,6 +5,7 @@ import { router } from "./Routes";
 import { app, auth } from "./firebaseConfig";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "reactjs-popup/dist/index.css";
 import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

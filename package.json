@@ -21,6 +21,7 @@
     "react-router-dom": "^6.8.1",
     "react-toastify": "^9.1.1",
     "react-uuid": "^2.0.0",
+    "reactjs-popup": "^2.0.5",
     "sass": "^1.58.2",
     "sort-by": "^1.2.0"
   },
