@@ -4,7 +4,6 @@ import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import ModalComponent from "../Modal";
 import { getUniqueID } from "../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
-
 import "./index.scss";
 
 export default function PostStatus({ currentUser }) {
@@ -36,8 +35,6 @@ export default function PostStatus({ currentUser }) {
   };
 
   const updateStatus = () => {
-    console.log(status);
-
     updatePost(currentPost.id, status);
     setModalOpen(false);
   };
