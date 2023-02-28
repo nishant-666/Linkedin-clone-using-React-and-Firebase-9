@@ -17,8 +17,6 @@ export default function PostsCard({ posts, id, getEditData }) {
     getCurrentUser(setCurrentUser);
     getAllUsers(setAllUsers);
   }, []);
-  console.log(currentUser.id);
-  console.log(posts.userID);
   return (
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
