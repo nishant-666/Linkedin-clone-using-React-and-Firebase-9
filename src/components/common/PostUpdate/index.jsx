@@ -12,6 +12,7 @@ export default function PostStatus({ currentUser }) {
   const [allStatuses, setAllStatus] = useState([]);
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
+
   const sendStatus = async () => {
     let object = {
       status: status,

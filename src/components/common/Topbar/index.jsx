@@ -44,7 +44,7 @@ export default function Topbar() {
         <AiOutlineUserSwitch
           size={30}
           className="react-icon"
-          onClick={() => goToRoute("/profile")}
+          onClick={() => goToRoute("/connections")}
         />
         <BsBriefcase size={30} className="react-icon" />
         <AiOutlineMessage size={30} className="react-icon" />

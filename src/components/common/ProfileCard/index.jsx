@@ -74,24 +74,33 @@ export default function ProfileCard({ onEdit, currentUser }) {
                 ? currentUser.headline
                 : currentProfile?.headline}
             </p>
-            <p className="location">
-              {Object.values(currentProfile).length === 0
-                ? `${currentUser.city}, ${currentUser.country} `
-                : `${currentProfile?.city}, ${currentUser.country}`}
-            </p>
-            <a
-              className="website"
-              target="_blank"
-              href={
-                Object.values(currentProfile).length === 0
+            {(currentUser.city || currentUser.country) &&
+            (currentProfile?.city || currentProfile?.country) ? (
+              <p className="location">
+                {Object.values(currentProfile).length === 0
+                  ? `${currentUser.city}, ${currentUser.country} `
+                  : `${currentProfile?.city}, ${currentUser.country}`}
+              </p>
+            ) : (
+              <></>
+            )}
+            {currentUser.website || currentProfile?.website ? (
+              <a
+                className="website"
+                target="_blank"
+                href={
+                  Object.values(currentProfile).length === 0
+                    ? `${currentUser.website}`
+                    : currentProfile?.website
+                }
+              >
+                {Object.values(currentProfile).length === 0
                   ? `${currentUser.website}`
-                  : currentProfile?.website
-              }
-            >
-              {Object.values(currentProfile).length === 0
-                ? `${currentUser.website}`
-                : currentProfile?.website}
-            </a>
+                  : currentProfile?.website}
+              </a>
+            ) : (
+              <></>
+            )}
           </div>
 
           <div className="right-info">
@@ -113,12 +122,16 @@ export default function ProfileCard({ onEdit, currentUser }) {
             : currentProfile?.aboutMe}
         </p>
 
-        <p className="skills">
-          <span className="skill-label">Skills</span>:&nbsp;
-          {Object.values(currentProfile).length === 0
-            ? currentUser.skills
-            : currentProfile?.skills}
-        </p>
+        {currentUser.skills || currentProfile?.skills ? (
+          <p className="skills">
+            <span className="skill-label">Skills</span>:&nbsp;
+            {Object.values(currentProfile).length === 0
+              ? currentUser.skills
+              : currentProfile?.skills}
+          </p>
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="post-status-main">
