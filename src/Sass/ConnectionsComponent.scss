@@ -1,17 +1,73 @@
 .connections-main {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 0px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
+  margin: 30px;
+  border: 1px solid #bbbbbb;
+  background-color: white;
+  border-radius: 10px;
   .grid-child {
-    border: 1px solid #212121;
-    width: 300px;
-    height: 100px;
+    border: 1px solid #bbbbbb;
+    width: 250px;
+    height: 330px;
     margin: 10px;
     padding: 10px;
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    position: relative;
     cursor: pointer;
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 20px;
+    }
+
+    .name {
+      font-family: system-ui;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .headline {
+      margin-top: -15px;
+      font-family: system-ui;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    button {
+      width: 90%;
+      height: 40px;
+      position: absolute;
+
+      bottom: 10px;
+      cursor: pointer;
+      background-color: white;
+      color: #004284;
+      border: 1px solid #004284;
+      font-size: 16px;
+      font-family: system-ui;
+      border-radius: 30px;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button:hover {
+      border: 2px solid #004284;
+      background-color: #bbdefb;
+    }
   }
 }
