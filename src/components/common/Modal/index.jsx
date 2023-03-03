@@ -1,5 +1,6 @@
-import React from "react";
-import { Modal, Button } from "antd";
+import React, { useState } from "react";
+import { Button, Modal, Progress } from "antd";
+import { AiOutlinePicture } from "react-icons/ai";
 import "./index.scss";
 
 const ModalComponent = ({
@@ -10,7 +11,14 @@ const ModalComponent = ({
   status,
   isEdit,
   updateStatus,
+  uploadPostImage,
+  setPostImage,
+  postImage,
+  currentPost,
+  setCurrentPost,
 }) => {
+  console.log(currentPost?.postImage);
+  const [progress, setProgress] = useState(0);
   return (
     <>
       <Modal
@@ -20,10 +28,14 @@ const ModalComponent = ({
         onOk={() => {
           setStatus("");
           setModalOpen(false);
+          setPostImage("");
+          setCurrentPost({});
         }}
         onCancel={() => {
           setStatus("");
           setModalOpen(false);
+          setPostImage("");
+          setCurrentPost({});
         }}
         footer={[
           <Button
@@ -36,11 +48,43 @@ const ModalComponent = ({
           </Button>,
         ]}
       >
+        <div className="posts-body">
+          <textarea
+            className="modal-input"
+            rows={3}
+            cols={3}
+            placeholder="What do you want to talk about?"
+            onChange={(event) => setStatus(event.target.value)}
+            value={status}
+          />
+
+          {progress === 0 || progress === 100 ? (
+            <></>
+          ) : (
+            <div className="progress-bar">
+              <Progress type="circle" percent={progress} />
+            </div>
+          )}
+          {postImage?.length > 0 || currentPost?.postImage ? (
+            <img
+              className="preview-image"
+              src={postImage || currentPost?.postImage}
+              alt="postImage"
+            />
+          ) : (
+            <></>
+          )}
+        </div>
+        <label for="pic-upload">
+          <AiOutlinePicture size={35} className="picture-icon" />
+        </label>
         <input
-          className="modal-input"
-          placeholder="What do you want to talk about?"
-          onChange={(event) => setStatus(event.target.value)}
-          value={status}
+          id="pic-upload"
+          type={"file"}
+          hidden
+          onChange={(event) =>
+            uploadPostImage(event.target.files[0], setPostImage, setProgress)
+          }
         />
       </Modal>
     </>

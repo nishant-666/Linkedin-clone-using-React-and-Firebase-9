@@ -34,3 +34,27 @@ export const uploadImage = (
     }
   );
 };
+
+export const uploadPostImage = (file, setPostImage, setProgress) => {
+  const postPicsRef = ref(storage, `postImages/${file.name}`);
+  const uploadTask = uploadBytesResumable(postPicsRef, file);
+
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      const progress = Math.round(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+
+      setProgress(progress);
+    },
+    (error) => {
+      console.error(err);
+    },
+    () => {
+      getDownloadURL(uploadTask.snapshot.ref).then((response) => {
+        setPostImage(response);
+      });
+    }
+  );
+};

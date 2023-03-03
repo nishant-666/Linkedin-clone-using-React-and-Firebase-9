@@ -6,4 +6,24 @@
   font-size: 16px;
   font-family: system-ui;
   width: 100%;
+  resize: none;
+}
+
+.picture-icon {
+  color: #0073b1;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+}
+
+.preview-image {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.posts-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
