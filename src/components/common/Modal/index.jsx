@@ -65,7 +65,7 @@ const ModalComponent = ({
               <Progress type="circle" percent={progress} />
             </div>
           )}
-          {postImage?.length > 0 || currentPost?.postImage ? (
+          {postImage?.length > 0 || currentPost?.postImage?.length ? (
             <img
               className="preview-image"
               src={postImage || currentPost?.postImage}
