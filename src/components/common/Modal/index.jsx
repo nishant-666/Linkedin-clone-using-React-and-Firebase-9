@@ -17,7 +17,6 @@ const ModalComponent = ({
   currentPost,
   setCurrentPost,
 }) => {
-  console.log(currentPost?.postImage);
   const [progress, setProgress] = useState(0);
   return (
     <>

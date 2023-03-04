@@ -1,6 +1,12 @@
 import React, { useState, useMemo } from "react";
-import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
+import {
+  getSingleStatus,
+  getSingleUser,
+  editProfile,
+} from "../../../api/FirestoreAPI";
 import PostsCard from "../PostsCard";
+import { Button, Modal, Divider } from "antd";
+import { AiOutlinePlus, AiOutlineCloseCircle } from "react-icons/ai";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
@@ -10,14 +16,25 @@ import "./index.scss";
 export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
   const [allStatuses, setAllStatus] = useState([]);
+  const [modal, setModal] = useState(false);
   const [currentProfile, setCurrentProfile] = useState({});
   const [currentImage, setCurrentImage] = useState({});
+  const [skill, setSkill] = useState("");
+  const [skills, setSkills] = useState([]);
   const [progress, setProgress] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+
   const getImage = (event) => {
     setCurrentImage(event.target.files[0]);
   };
 
+  const addSkills = () => {
+    setSkills([...skills, skill]);
+    setSkill("");
+  };
+  const removeSkills = (item) => {
+    setSkills(skills.filter((skill) => skill !== item));
+  };
   const uploadImage = () => {
     uploadImageAPI(
       currentImage,
@@ -26,6 +43,11 @@ export default function ProfileCard({ onEdit, currentUser }) {
       setProgress,
       setCurrentImage
     );
+  };
+
+  const updateSkill = () => {
+    editProfile(currentUser.id, { skills });
+    setModal(false);
   };
 
   useMemo(() => {
@@ -121,19 +143,41 @@ export default function ProfileCard({ onEdit, currentUser }) {
             ? currentUser.aboutMe
             : currentProfile?.aboutMe}
         </p>
-
-        {currentUser.skills || currentProfile?.skills ? (
-          <p className="skills">
-            <span className="skill-label">Skills</span>:&nbsp;
-            {Object.values(currentProfile).length === 0
-              ? currentUser.skills
-              : currentProfile?.skills}
-          </p>
-        ) : (
-          <></>
-        )}
       </div>
+      <div className="skills-card">
+        <div className="add-skills">
+          <h3>Skills</h3>
 
+          {Object.values(currentProfile).length !== 0 ? (
+            <></>
+          ) : (
+            <AiOutlinePlus
+              size={30}
+              className="add-icon"
+              onClick={() => setModal(true)}
+            />
+          )}
+        </div>
+        <div className="show-skills">
+          {Object.values(currentProfile).length === 0
+            ? currentUser.skills?.map((skill) => {
+                return (
+                  <div>
+                    <p>{skill}</p>
+                    <Divider />
+                  </div>
+                );
+              })
+            : currentProfile?.skills?.map((skill) => {
+                return (
+                  <div>
+                    <p>{skill}</p>
+                    <Divider />
+                  </div>
+                );
+              })}
+        </div>
+      </div>
       <div className="post-status-main">
         {allStatuses?.map((posts) => {
           return (
@@ -142,6 +186,45 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </div>
           );
         })}
+      </div>
+
+      <div className="skills-modal">
+        <Modal
+          title="Skills"
+          centered
+          open={modal}
+          onOk={() => setModal(false)}
+          onCancel={() => setModal(false)}
+          footer={[
+            <Button key="submit" type="primary" onClick={addSkills}>
+              Add
+            </Button>,
+            <Button key="submit" type="primary" onClick={updateSkill}>
+              Update Skills
+            </Button>,
+          ]}
+        >
+          <div className="skill-container">
+            {skills.map((skill, index) => {
+              return (
+                <div className="skills-inner">
+                  {index + 1}. {skill}{" "}
+                  <AiOutlineCloseCircle
+                    className="close-icon"
+                    color="#212121"
+                    onClick={() => removeSkills(skill)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <input
+            onChange={(event) => setSkill(event.target.value)}
+            className="skills-input"
+            value={skill}
+            placeholder="Add a Skill"
+          />
+        </Modal>
       </div>
     </>
   );
