@@ -1,5 +1,4 @@
-.profile-card,
-.skills-card {
+.profile-card {
   width: auto;
   height: auto;
   background-color: whitesmoke;
@@ -76,56 +75,4 @@
     width: 320px;
     line-height: 20px;
   }
-}
-
-.skills-card {
-  .add-skills {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .show-skills {
-    p {
-      font-size: 16px;
-    }
-  }
-  h3 {
-    font-size: 20px;
-    font-weight: 500;
-    font-family: system-ui;
-  }
-
-  .add-icon {
-    cursor: pointer;
-  }
-}
-
-.skill-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 10px 20px;
-  font-size: 16px;
-  font-family: Inter;
-}
-
-.skills-input {
-  width: 97%;
-  height: 35px;
-  background-color: white;
-  border: 1px solid #212121;
-  padding-left: 10px;
-  outline: none;
-  color: black;
-  font-family: Inter;
-  font-size: 17px;
-  margin-top: 10px;
-}
-
-.skills-inner {
-  display: flex;
-  align-items: center;
-}
-
-.close-icon {
-  margin-left: 5px;
 }
