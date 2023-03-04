@@ -1,5 +1,5 @@
 .modal-input {
-  border: none;
+  border: none !important;
   background-color: white;
   outline: none;
   color: black;
@@ -7,6 +7,16 @@
   font-family: system-ui;
   width: 100%;
   resize: none;
+}
+
+.ql-container.ql-snow,
+.ql-toolbar.ql-snow {
+  border: none !important;
+}
+
+.ql-container.ql-snow {
+  font-size: 20px;
+  font-family: system-ui;
 }
 
 .picture-icon {

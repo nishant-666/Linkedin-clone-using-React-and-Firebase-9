@@ -11,7 +11,7 @@ export default function ConnectionLayout() {
   }, []);
   return (
     <div>
-      <Topbar />
+      <Topbar currentUser={currentUser} />
       <Connections currentUser={currentUser} />
     </div>
   );

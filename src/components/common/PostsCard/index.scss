@@ -14,12 +14,13 @@
     gap: 10px;
     position: relative;
   }
-  .post-image {
+  .profile-image {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     object-fit: cover;
   }
+
   .name {
     font-family: system-ui, sans-serif;
     font-size: 18px;
@@ -70,4 +71,13 @@
     padding: 10px;
     border-radius: 50%;
   }
+}
+
+.post-image {
+  cursor: pointer;
+  width: 100%;
+}
+
+.modal {
+  margin-top: 30px;
 }

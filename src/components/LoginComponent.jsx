@@ -22,7 +22,7 @@ export default function LoginComponent() {
   };
 
   const googleSignIn = () => {
-    let response = GoogleSignInAPI();
+    GoogleSignInAPI();
     navigate("/home");
   };
   return (
