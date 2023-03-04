@@ -105,7 +105,7 @@ export default function Topbar({ currentUser }) {
       )}
       <img
         className="user-logo"
-        src={currentUser.imageLink}
+        src={currentUser?.imageLink}
         alt="user"
         onClick={displayPopup}
       />

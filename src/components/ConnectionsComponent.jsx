@@ -12,7 +12,7 @@ export default function ConnectionsComponent({ currentUser }) {
     getAllUsers(setUsers);
   }, []);
 
-  return (
+  return users.length > 1 ? (
     <div className="connections-main">
       {users.map((user) => {
         return user.id === currentUser.id ? (
@@ -26,5 +26,7 @@ export default function ConnectionsComponent({ currentUser }) {
         );
       })}
     </div>
+  ) : (
+    <div className="connections-main">No Connections to Add!</div>
   );
 }

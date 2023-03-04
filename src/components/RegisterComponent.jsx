@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
+import { RegisterAPI } from "../api/AuthAPI";
 import { postUserData } from "../api/FirestoreAPI";
 import LinkedinLogo from "../assets/linkedinLogo.png";
-import GoogleButton from "react-google-button";
 import { useNavigate } from "react-router-dom";
 import { getUniqueID } from "../helpers/getUniqueId";
 import "../Sass/LoginComponent.scss";
@@ -30,10 +29,6 @@ export default function RegisterComponent() {
     }
   };
 
-  const googleSignIn = () => {
-    let response = GoogleSignInAPI();
-    navigate("/home");
-  };
   return (
     <div className="login-wrapper">
       <img src={LinkedinLogo} className="linkedinLogo" />
@@ -73,8 +68,6 @@ export default function RegisterComponent() {
       </div>
       <hr class="hr-text" data-content="or" />
       <div className="google-btn-container">
-        <GoogleButton className="google-btn" onClick={googleSignIn} />
-
         <p className="go-to-signup">
           Already on LinkedIn?{" "}
           <span className="join-now" onClick={() => navigate("/")}>
