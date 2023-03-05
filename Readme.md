@@ -13,3 +13,9 @@ Link: https://linkedin-clone-a077e.web.app
 9. Add a Profile Picture
 10. Add Post Images
 11. Search For Other Users
+
+If you want to learn how to build this, follow my tutorial here:
+
+Linkedin Clone - React and Firebase Full Tutorial.
+
+Check the playlist for the videos: https://lnkd.in/d6JvCm-t
