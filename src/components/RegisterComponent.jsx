@@ -9,15 +9,15 @@ import { toast } from "react-toastify";
 
 export default function RegisterComponent() {
   let navigate = useNavigate();
-  const [credentails, setCredentials] = useState({});
+  const [credentials, setCredentials] = useState({});
   const register = async () => {
     try {
-      let res = await RegisterAPI(credentails.email, credentails.password);
+      let res = await RegisterAPI(credentials.email, credentials.password);
       toast.success("Account Created!");
       postUserData({
         userID: getUniqueID(),
-        name: credentails.name,
-        email: credentails.email,
+        name: credentials.name,
+        email: credentials.email,
         imageLink:
           "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
       });
@@ -39,7 +39,7 @@ export default function RegisterComponent() {
         <div className="auth-inputs">
           <input
             onChange={(event) =>
-              setCredentials({ ...credentails, name: event.target.value })
+              setCredentials({ ...credentials, name: event.target.value })
             }
             type="text"
             className="common-input"
@@ -47,7 +47,7 @@ export default function RegisterComponent() {
           />
           <input
             onChange={(event) =>
-              setCredentials({ ...credentails, email: event.target.value })
+              setCredentials({ ...credentials, email: event.target.value })
             }
             type="email"
             className="common-input"
@@ -55,7 +55,7 @@ export default function RegisterComponent() {
           />
           <input
             onChange={(event) =>
-              setCredentials({ ...credentails, password: event.target.value })
+              setCredentials({ ...credentials, password: event.target.value })
             }
             type="password"
             className="common-input"

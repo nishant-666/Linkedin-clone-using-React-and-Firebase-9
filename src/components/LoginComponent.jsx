@@ -7,10 +7,10 @@ import { toast } from "react-toastify";
 
 export default function LoginComponent() {
   let navigate = useNavigate();
-  const [credentails, setCredentials] = useState({});
+  const [credentials, setCredentials] = useState({});
   const login = async () => {
     try {
-      let res = await LoginAPI(credentails.email, credentails.password);
+      let res = await LoginAPI(credentials.email, credentials.password);
       toast.success("Signed In to Linkedin!");
       localStorage.setItem("userEmail", res.user.email);
       navigate("/home");
@@ -31,7 +31,7 @@ export default function LoginComponent() {
         <div className="auth-inputs">
           <input
             onChange={(event) =>
-              setCredentials({ ...credentails, email: event.target.value })
+              setCredentials({ ...credentials, email: event.target.value })
             }
             type="email"
             className="common-input"
@@ -39,7 +39,7 @@ export default function LoginComponent() {
           />
           <input
             onChange={(event) =>
-              setCredentials({ ...credentails, password: event.target.value })
+              setCredentials({ ...credentials, password: event.target.value })
             }
             type="password"
             className="common-input"
